@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "lib/chains.h"
+#include "chains.h"
 /* mb512 encoder    
-this encodes .txt files so this will keep your documents proteced.
+this enc odes .txt files so this will keep your documents proteced.
 the random number key saves to your local disk, hackers will have a hard time getting to it.
 and if they do, all hell breaks loose
 */
@@ -29,7 +29,7 @@ int main(){
     char *fpath;
     char *M1MAX;
     FILE *key1;
-    key1 = fopen("/tmp/key1.txt", "w+");
+    key1 = fopen("/usr/key1.txt", "w+");
     FILE *path;
 
     if(key1){

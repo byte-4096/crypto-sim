@@ -7,13 +7,10 @@
 
 using namespace std;
 
-
-
 //important global variables
 long user_profile;
 long *ID = 0;
  
-
 //main loop
 void wallet(){
 	float x = 100;
@@ -60,5 +57,4 @@ void wallet(){
 int main(int argc, char **argv)
 {
 	std::thread thread_obj(wallet);
-	std::thread thread_obj(mine)
 }
