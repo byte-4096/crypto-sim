@@ -1,19 +1,29 @@
 #include <iostream>
-#include "lib/main.h"
+#include <stdlib.h>
 #include <thread>
+#include <unistd.h>
 
 
 using namespace std;
 
+int ai(){
 
-int in;
-int out;
-
-
-thread thread_object(miner,in, out );
-
-
-//wallet and chain manager
-int main(){
-    
 }
+
+
+int chains(){
+
+}
+
+int mine(){
+
+}
+
+int wallet(){
+
+}
+
+thread thread_object(wallet);
+thread thread_object(mine);
+thread thread_object(ai);
+
