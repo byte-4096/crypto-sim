@@ -64,7 +64,7 @@ int decode(int rand_num, int coins){
   return coins;
 }
 
-int main(){
+int main (int argc, char *argv[]){
   printf("CRYPTO-SIMULATOR\n ");
   printf("starting... ");
   while(1){
