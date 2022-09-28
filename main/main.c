@@ -28,8 +28,8 @@ float money;
 float id = 0;
 
 
-char *input[50];
-char *y[1] = {"y", "n"};
+
+
 //trading mode, creates blocks for the user to mine when they enter mine mode
 int trade(){
 
@@ -65,19 +65,22 @@ int decode(int rand_num, int coins){
 }
 
 int main(){
-  printf("CRYPTO-SIMULATOR");
+  printf("CRYPTO-SIMULATOR\n ");
   printf("starting... ");
-  sleep(6);
-  printf("\n\n What would you like to do? ");
-  scanf("%s", &input);
-  if((strcmp(input, "help"))){
-    printf("You can Trade or enter mining mode");
-  }
-  else if (strcmp(input, "Trade")){
-    trade();
-  }
-  else if (strcmp(input, "mining")){
-    mine();
+  while(1){
+    char input[50];
+    sleep(2);
+    printf("\n\n What would you like to do? ");
+    scanf("%s", &input);
+    if(strcmp(input, "help")){
+      printf("You can Trade or enter mining mode");
+    }
+    else if (strcmp(input, "Trade")){
+     trade();
+    }
+   else if (strcmp(input, "mining")){
+      mine();
+    }
   }
   return 0;
 }
