@@ -1,114 +1,83 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <math.h>
+#include <time.h>
+#include <string.h>
+
 
 //global  variables
-#define num_blocks  5000
+
+const int num_blocks = 5000; //max number of a.i block pending verifications per session
+
 
 //file handling
-FILE *fh;
-FILE *hf;
+FILE * fs1;
+
+ 
 int done = 0;
 int num;
-float money;
 int guess;
-int blocks_mined = 0;
-float amountof_ai;
-const char *hi =  "Hello";
 int firstime;
-char *input[50];
-char *y = "y";
-FILE *fs;
+int blocks_mined = 0;
+
+
+float amountof_ai;
+float money;
 float money;
 float id = 0;
-char *one1  = "trade";
 
 
-//first function
-float mine(float in, float out){
-  // resets everytime miner is open
-  time_t t;
-
-  fh = fopen("/bin/data/data.txt", "w+");
-  srand((unsigned) time(&t));
-  //checks for blokcs
-  while(1){
-    if( blocks_mined == num_blocks){
-      printf("reseting blocks");
-      printf("closing threads");
-      break;
-    }
-    else{
-      if((hf =  fopen("/bin/data/blokcs.txt","r")) == NULL){
-        continue;
-      }
-      else{
-        fscanf(hf, "%d", &num);
-        
-        while(done == 0){
-          
-          int xs = rand() % 3;
-          if(guess == num){
-              money += rand() % 5;
-              printf("you got it!");
-              fprintf(fh, "%d", &money);
-              blocks_mined += 1;
-              done == 1;
-              break;
-          }
-          else if(guess < num){
-              guess += xs;
-          }
-          else if( guess > num){
-              guess -= xs;
-              break;
-          }
-    }
-  }
-  fclose(fh);
-  fclose(hf);
-  return 0;
+char *input[50];
+char *y[1] = {"y", "n"};
+//trading mode, creates blocks for the user to mine when they enter mine mode
+int trade(){
 
 }
-//miner is threaded
+int mine(){
 
+}
+//creates random number
+int encode(int rand_num){
+  srand(time(0));
+  rand_num = rand() % 1000;
+  return rand_num;
+}
 
-
-//wallet
-int main(){
-  time_t t;
-  //starting up file reading and writing before main loop
-  srand((unsigned) time(&t));
-
-
-  //first time logging
-  switch(firstime){
-    case 0:
-      printf("Hello, nice to see you! \n");
-      printf(" ai levels now setting randomly");
-      amountof_ai = rand() %10;
-      sleep(1);
-      printf("initizing wallet");
+//tries to decode the random number
+int decode(int rand_num, int coins){
+  int times = 0;
+  for(int x = 0; x > rand_num; x += (rand() % 100)){
+    times += 1;
+    if(times <= 150){
+      printf("to0 many tries");
+      coins -= 1;
       break;
-    case 1:
-      printf("Welcome back!\n");
-      printf("starting wallet");
-      break;
-    defalt:
-      printf("Something went wrong.\n");
-      break;
-  }
-
-  while(1){
-    printf("----CURRENT PENDING BLOCKS----");
-    printf("%d",id);
-
-    printf("what would you like to do? exchange, trade or quit");
-    sscanf("%s", &input);
-    if(&input == &one1){
-      printf("trading process executing...");
-      
     }
+    else if(rand_num == x){
+      printf("you found the number!");
+      coins += rand() % 10;
+      break;
+    }
+  
+  }
+  return coins;
+}
+
+int main(){
+  printf("CRYPTO-SIMULATOR");
+  printf("starting... ");
+  sleep(6);
+  printf("\n\n What would you like to do? ");
+  scanf("%s", &input);
+  if((strcmp(input, "help"))){
+    printf("You can Trade or enter mining mode");
+  }
+  else if (strcmp(input, "Trade")){
+    trade();
+  }
+  else if (strcmp(input, "mining")){
+    mine();
   }
   return 0;
 }
