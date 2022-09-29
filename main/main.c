@@ -35,7 +35,7 @@ int trade(){
 
 }
 int mine(){
-
+  
 }
 //creates random number
 int encode(int rand_num){
@@ -68,18 +68,20 @@ int main (int argc, char *argv[]){
   printf("CRYPTO-SIMULATOR\n ");
   printf("starting... ");
   while(1){
-    char input[50];
+    char *input[50];
     sleep(2);
     printf("\n\n What would you like to do? ");
-    scanf("%s", &input);
-    if(strcmp(input, "help")){
+    scanf("%s", input);
+    if(!(strcmp((char*)"help",(char*)input))){
       printf("You can Trade or enter mining mode");
     }
-    else if (strcmp(input, "Trade")){
-     trade();
+    else if(!(strcmp((char*)"Trade",(char*)input))){
+      printf("hi");
+      trade();
     }
-   else if (strcmp(input, "mining")){
+    else if(!(strcmp((char*)"mining",(char*)input))){
       mine();
+      printf("hsi");
     }
   }
   return 0;
