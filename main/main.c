@@ -88,7 +88,7 @@ int main (int argc, char *argv[]){
       printf("What would you like to do? exchange or buy EAC\n");
       scanf(input, "%s");
       if(!(strcmp((char*)"exchange",(char*)input))){
-        printf("you are now selling EAC for USD")
+        printf("you are now selling EAC for USD");
       }
       else if(!(strcmp((char*)"buy",(char*)input))){
         
