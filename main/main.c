@@ -29,7 +29,7 @@ float id = 0;
 int coinss;
 int rand_number1;
 int num_2;
-int times = 100;
+
 //trading mode, creates blocks for the user to mine when they enter mine mode
 int trade(){
 
@@ -39,10 +39,11 @@ int mine(){
   int x;
   while(x == mine){
     x += 1;
-    encode(num_2, times);
+    encode(num_2, 100);
     if(x == num_2)
-    encode(rand_number1);
-    decode(rand_number1,coinss);
+      encode(rand_number1,1000);
+      decode(rand_number1,coinss);
+      x = 0
     }
     
 }
