@@ -8,8 +8,6 @@
 
 //global  variables
 
-const int num_blocks = 5000; //max number of a.i block pending verifications per session
-
 
 //file handling
 FILE * fs1;
@@ -17,12 +15,12 @@ FILE * fs1;
  
 int done = 0;
 int num;
-int guess;
-int firstime;
+
+int bought;
 int blocks_mined = 0;
 
 
-float amountof_ai;
+
 float money1;
 int money;//coin amount 
 float id = 0;
@@ -92,7 +90,18 @@ int main (int argc, char *argv[]){
       }
       else if(!(strcmp((char*)"buy",(char*)input))){
         printf("YOU ARE NOW BUYING EAC FOR USD\n");
-         
+        printf("how much do you want to buy, YOUR BALANCE: %f",money1);
+        scanf("%i",bought);
+        float cost = bought * (rand() % 10) / 2;
+        if(bought > money){
+          printf("you cannot afford this");
+
+        }
+        else{
+          money += bought;
+          money1 -= cost;
+          printf("transaction complete, you now have: %i EAC, %f USD", money, money1);
+        }
       }
     }
     else if(!(strcmp((char*)"mining",(char*)input))){
