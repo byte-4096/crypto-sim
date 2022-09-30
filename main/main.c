@@ -20,9 +20,10 @@ int bought;
 int blocks_mined = 0;
 
 
-
-float money1;
-int money;//coin amount 
+//money
+float money1; 
+//coins
+int money;
 float id = 0;
 
 int rand_number1;
@@ -84,23 +85,36 @@ int main (int argc, char *argv[]){
       printf("YOUR COIN BALANCE %d", money);
       printf("EAC COIN PRICE: %f", price);
       printf("What would you like to do? exchange or buy EAC\n");
-      scanf(input, "%s");
+      scanf("%s",input);
       if(!(strcmp((char*)"exchange",(char*)input))){
         printf("you are now selling EAC for USD\n");
+        printf("enter the amount of EAC you want to sell\n");
+        scanf( "%i",bought);
+        float cost = bought * (rand() % 10) / 2;
+        if(bought > money){
+          printf("you cannot afford this\n");
+        }
+        else{
+          printf("purchasing...");
+          money1 += cost;
+          money -= bought;
+          sleep(2);
+          printf("purchased!\n");
+        }
       }
       else if(!(strcmp((char*)"buy",(char*)input))){
         printf("YOU ARE NOW BUYING EAC FOR USD\n");
-        printf("how much do you want to buy, YOUR BALANCE: %f",money1);
+        printf("how much do you want to buy, YOUR BALANCE: %f\n",money1);
         scanf("%i",bought);
         float cost = bought * (rand() % 10) / 2;
+        printf("EAC COSts %f", cost);
         if(bought > money){
-          printf("you cannot afford this");
-
+          printf("you cannot afford this\n");
         }
         else{
           money += bought;
           money1 -= cost;
-          printf("transaction complete, you now have: %i EAC, %f USD", money, money1);
+          printf("transaction complete, you now have: %i EAC, %f USD\n", money, money1);
         }
       }
     }
@@ -112,10 +126,9 @@ int main (int argc, char *argv[]){
       while(x){ 
          x += 1;
         if(x == num_2){
-         printf("block found");
+          printf("block found\n");
           encode(num_2,100);
-      
-         x = 0;
+          x = 0;
         }
     
       }
