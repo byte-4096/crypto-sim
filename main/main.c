@@ -26,21 +26,30 @@ float amountof_ai;
 float money;
 float money;
 float id = 0;
-
-
-
-
+int coinss;
+int rand_number1;
+int num_2;
+int times = 100;
 //trading mode, creates blocks for the user to mine when they enter mine mode
 int trade(){
 
 }
+//mines numbers
 int mine(){
-  
+  int x;
+  while(x == mine){
+    x += 1;
+    encode(num_2, times);
+    if(x == num_2)
+    encode(rand_number1);
+    decode(rand_number1,coinss);
+    }
+    
 }
 //creates random number
-int encode(int rand_num){
+int encode(int rand_num, int timers){
   srand(time(0));
-  rand_num = rand() % 1000;
+  rand_num = rand() % timers;
   return rand_num;
 }
 
@@ -50,7 +59,7 @@ int decode(int rand_num, int coins){
   for(int x = 0; x > rand_num; x += (rand() % 100)){
     times += 1;
     if(times <= 150){
-      printf("to0 many tries");
+      printf("too many tries");
       coins -= 1;
       break;
     }
@@ -64,6 +73,7 @@ int decode(int rand_num, int coins){
   return coins;
 }
 
+
 int main (int argc, char *argv[]){
   printf("CRYPTO-SIMULATOR\n ");
   printf("starting... ");
@@ -72,17 +82,19 @@ int main (int argc, char *argv[]){
     sleep(2);
     printf("\n\n What would you like to do? ");
     scanf("%s", input);
-    if(!(strcmp((char*)"help",(char*)input))){
+    if(!(strcmp((char*)"help",(char*)input)) || !(strcmp((char*)"h",(char*)input))){
       printf("You can Trade or enter mining mode");
     }
     else if(!(strcmp((char*)"Trade",(char*)input))){
-      printf("hi");
       trade();
     }
     else if(!(strcmp((char*)"mining",(char*)input))){
       mine();
-      printf("hsi");
+    }
+    else{
+      printf("ERROR, type h for help! \n\n\n\n");                                     
+      sleep(3);
     }
   }
   return 0;
-}
+}        
