@@ -30,9 +30,7 @@ int rand_number1;
 int num_2;
 
 //trading mode, creates blocks for the user to mine when they enter mine mode
-int trade(){
-  
-}
+
 
 //creates random number
 int encode(int rand_num, int timers){
@@ -59,10 +57,6 @@ int decode(int rand_num, int coins){
   
   }
   return coins;
-}
-//mines numbers
-int mine(){
-  
 }
 
 int main (int argc, char *argv[]){
